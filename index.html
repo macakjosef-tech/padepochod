@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padesátka v Novohradkách</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Padesátka v pralese začíná za <span id="countdown"></span></h1>
+    <p>🌄 50 km přes Novohradské hory, kolem žofínského pralesa</p>
+</section>
+
+<script>
+  function updateCountdown() {
+    const target = new Date("2026-04-26T07:00:00"); // start pochodu
+    const now = new Date();
+    const diff = target - now;
+
+    if (diff <= 0) {
+      document.getElementById("countdown").innerText = "právě teď!";
+      return;
+    }
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const m = Math.floor((diff / (1000 * 60)) % 60);
+
+    document.getElementById("countdown").innerText =
+      `${d} dní • ${h} h • ${m} min`;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 60000); // aktualizace každou minutu
+</script>
+
+
+<!-- HLAVNÍ INFORMACE (nově obaleno do .box) -->
+<section class="box">
+    <h2>📌 Hlavní informace</h2>
+
+    <p><strong>📅 Termín:</strong> Sobota 26. dubna 2026</p>
+
+    <p><strong>⏰ Start:</strong> 7:00 – parkoviště Žofín  
+        (<a href="https://mapy.com/cs/turisticka?source=traf&id=66901&ds=1&x=14.6933144&y=48.6755966&z=19" target="_blank">
+            zobrazit na mapě
+        </a>)
+    </p>
+
+    <p><strong>🥾 Trasa:</strong>
+        <a href="https://mapy.com/s/bukafesara" target="_blank">
+            https://mapy.com/s/bukafesara
+        </a>
+    </p>
+</section>
+
+<!-- O POCHODU -->
+<section class="box">
+    <h2>🧭 O padepochodu</h2>
+    <p>Každého jednou čeká — a já si řekl, že i když vlastně nebyla, užijeme si to. 
+    Uvrtal jsem do toho i bráchu a po lahvi vína jsem se rozhodli pro <strong>50km pochod v Novohradkách.</strong></p>
+
+    <p>Přidat se může kdokoliv — celou trasu, nebo jen kousek. Sám nebo s rodinou. Hodně toho jde i na kole.</p>
+
+    <p>Připojit a odpojit se dá kdekoliv, stačí to napsat do poznámky v přihlášce, abychom věděli.</p>
+
+    <p>Na startu i v cíli bude <strong>🚐 kempr ➜ pivo&gril 🔥🍖🍺</strong>. Pak už si jídlo a pití nese každý sám. </p>
+<br>
+   <p>Tak se těšíme!</p> 
+<br>
+<p>A mimochodem — <strong>tohle je moje úplně první webovka.  </strong>
+    Takže když něco nebude fungovat, ber to jako součást dobrodružství.</p>
+</section>
+
+<!-- PŘIPOJOVACÍ BODY -->
+<section class="box">
+    <h2>📍 Připojovací místa</h2>
+    <ul>
+    <strong>🚩 Start - Kempr</strong> pade před námi
+  👉 <a href="https://mapy.com/s/dumojejajo" target="_blank">zobrazit na mapě</a>
+  </p>   
+  
+     <p>
+  <img src="https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi2_hdpi.png"
+       alt="pin" style="width:15px; vertical-align:middle; margin-right:6px;">
+  <strong>Pohoří na Šumavě</strong> do cíle 33km, budeme tam asi 10,30
+  👉 <a href="https://mapy.com/s/caturajaja" target="_blank">zobrazit na mapě</a>
+  </p> 
+
+   <p>
+  <img src="https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi2_hdpi.png"
+       alt="pin" style="width:15px; vertical-align:middle; margin-right:6px;">
+  <strong>Přístřešek Zlatá Ktiš, asi nejlepší místo na připojení</strong> do cíle 22km, budeme tam asi 12,30, pláž, koupání, jídlo, ze startu je to kousek
+  👉 <a href="https://mapy.com/s/poveduzeso" target="_blank">zobrazit na mapě</a>
+  </p> 
+  
+     <p>
+  <img src="https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi2_hdpi.png"
+       alt="pin" style="width:15px; vertical-align:middle; margin-right:6px;">
+  <strong>Parkoviště Šejby</strong> do cíle 12km, budeme tam po 15. hodině
+  👉 <a href="" target="_blank">zobrazit na mapě</a>
+  </p> 
+   <p>
+    <strong>🍺 Kempr</strong> pade za námi, tam bychom měli být okolo 18. hodiny
+  👉 <a href="https://mapy.com/s/mahupegafa" target="_blank">zobrazit na mapě</a>
+  </p> 
+
+    </ul>
+    <p>Pokud se chceš připojit jinde, napiš to do poznámky v přihlášce.</p>
+
+    <h2>📍 Kde jsme teď</h2>
+<div id="tracking-section">
+  <p>Abyste věděli, kde jsme dám sem sledování polohy. Bude aktivní v den pochodu.</p>
+</div>
+
+<script>
+  const activationDate = new Date("2026-04-24T00:00:00");
+
+  if (new Date() >= activationDate) {
+    document.getElementById("tracking-section").innerHTML = `
+      <a href="TVUJ_ODKAZ_Z_IPHONU"
+         style="display:inline-block;
+                padding:14px 22px;
+                background:#007aff;
+                color:white;
+                border-radius:10px;
+                font-size:18px;
+                text-decoration:none;
+                font-weight:600;">
+        📍 Zobrazit naši aktuální polohu
+      </a>
+    `;
+  }
+</script>
+</section>
+
+<!-- POČASÍ -->
+<section class="box">
+    <h2>🌦️ Počasí</h2>
+    <p>Pokud bude vyloženě hnusně (celodenní liják, vichřice, apokalypsa), akce se přesouvá.  
+    Informaci dám sem na web a pošlu SMS všem přihlášeným.</p>
+</section>
+
+<!-- FORMULÁŘ -->
+<section class="box">
+   <h2>📝 Přihláška</h2>
+
+<form id="prihlaskaForm">
+  <label>Jméno<br>
+    <input type="text" name="jmeno" required>
+  </label>
+
+  <label>Mobil<br>
+    <input type="tel" name="telefon" required>
+  </label>
+
+  <label>Poznámka (např. kde se připojíš)<br>
+    <textarea name="poznamka" rows="4"></textarea>
+  </label>
+
+<div style="display:inline-block;">
+  <button type="submit" style="padding:6px 14px; font-size:14px;">
+    Odeslat
+  </button>
+</div>
+
+</form>
+
+<div id="vysledek" style="margin-top:10px; font-weight:600;"></div>
+
+<script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbxv8JOSQL1dTZeL8cCkDltVQd5zXgUadAA-9fnq2hkHSW6eMIlNxElpi6XLoE4am5dafA/exec";
+
+  document.getElementById("prihlaskaForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const data = {
+      jmeno: this.jmeno.value,
+      telefon: this.telefon.value,
+      poznamka: this.poznamka.value
+    };
+
+    fetch(scriptURL, {
+      method: "POST",
+      body: JSON.stringify(data)
+    })
+    .then(r => r.json())
+    .then(res => {
+      document.getElementById("vysledek").innerText = "Děkujeme, přihláška byla odeslána.";
+      this.reset();
+    })
+    .catch(err => {
+      document.getElementById("vysledek").innerText = "Chyba při odesílání.";
+    });
+  });
+</script>
